@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.SystemManageDao">
+
+    <select id="getPostNumber" resultType="int">
+        select count(*) FROM post
+    </select>
+
+    <select id="getDepartmentNumber" resultType="int">
+        select count(*) FROM department
+    </select>
+
+    <select id="getALLDepartment_Post" resultType="Department_Post" >
+        select d.id department_id,d.`name`department_name,p.id post_id,p.`name` post_name
+        FROM post p,department d
+        where p.department_id = d.id
+    </select>
+
+    <select id="getStaffInPostInfo" resultType="StaffInfo" parameterType="string">
+        select *
+        from staffinfo
+        where post=#{arg0} and (staff_status='正式员工' or staff_status='试用期')
+    </select>
+
+    <delete id="deletePostInfo" parameterType="string">
+        delete from post where name=#{arg0}
+    </delete>
+
+
+    <update id="upPostInfo" parameterType="Post">
+        UPDATE post
+        <trim prefix="set" suffixOverrides=",">
+            name=#{arg1},
+            department_id=#{arg2},
+        </trim>
+        WHERE id=#{arg0}
+    </update>
+
+
+
+    <update id="upDepartementInfo" parameterType="Department">
+        UPDATE department
+        <trim prefix="set" suffixOverrides=",">
+            name=#{name},
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    <insert id="addDepartment">
+        insert into department values(#{arg0},#{arg1},#{arg2})
+    </insert>
+    <insert id="addPost">
+        insert into post values(#{arg0},#{arg1},#{arg2},#{arg3})
+    </insert>
+
+    <update id="upStaffPostInfo" parameterType="string">
+        UPDATE staffinfo
+        <trim prefix="set" suffixOverrides=",">
+            post=#{arg0},
+            department=#{arg2},
+        </trim>
+        WHERE post=#{arg1} and (staff_status='正式员工' or staff_status='试用期')
+    </update>
+
+<!--    <select id="searchStaffInfo" resultType="StaffInfo" parameterType="StaffInfo">-->
+<!--        select * from staffinfo-->
+<!--        WHERE-->
+<!--        <if test="id!=''">id like #{id} and </if>-->
+<!--        <if test="name!=''">name like #{name} and </if>-->
+<!--        <if test="department!='all'">department in (${department}) and </if>-->
+<!--        <if test="post!='all'">post in (${post}) and </if>-->
+<!--        <if test="sex!='全部'">sex=#{sex} and </if>-->
+<!--        staff_status=#{staff_status}-->
+<!--    </select>-->
+
+    <select id="getDepartmentInfo" resultType="Department" >
+        select *
+        from department
+    </select>
+
+    <select id="getStaffInPostStaffId" resultType="string" parameterType="string">
+        select id
+        from staffinfo
+        where post=#{arg0}
+    </select>
+
+
+    <select id="postInDepartment" resultType="Department_Post" parameterType="string">
+        select d.id department_id,d.`name`department_name,p.id post_id,p.`name` post_name
+        FROM post p,department d
+        where p.department_id = d.id and p.department_id=#{arg0}
+    </select>
+
+    <delete id="delDepartment" parameterType="string">
+        delete from department where id=#{arg0}
+    </delete>
+
+</mapper>

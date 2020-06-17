@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.StaffInfoDao">
+    <!-- 查询account列表 -->
+    <select id="allStaffInfo" resultType="StaffInfo">
+        select *
+        from staffinfo
+        where staff_status='正式员工'
+    </select>
+
+    <select id="getOneStaffInfo" resultType="StaffInfo" parameterType="string">
+        select * from staffinfo where id=#{id}
+    </select>
+
+    <update id="UpdateStaffInfo" parameterType="StaffInfo">
+        UPDATE staffinfo
+        <trim prefix="set" suffixOverrides=",">
+            <if test="id!=null">id=#{id},</if>
+            <if test="name!=null">name=#{name},</if>
+            <if test="sex!=null">sex=#{sex},</if>
+            <if test="idnumber!=null">idnumber=#{idnumber},</if>
+            <if test="address!=null">address=#{address},</if>
+            <if test="worktime!=null">worktime=#{worktime},</if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    <select id="idNumberIfExist" resultType="StaffInfo" parameterType="StaffInfo">
+        select * from staffinfo where idnumber=#{idnumber} and id!=#{id}
+    </select>
+
+    <select id="getOneStaffFiles" resultType="StaffInfo_Files" parameterType="string">
+       select * from stafffiles sf,staffinfo si
+        where sf.staff_id=si.id and sf.ifexist=1 and si.id=#{id}
+    </select>
+
+    <insert id="addStaffFiles" parameterType="StaffFiles">
+        insert into stafffiles values(#{staff_id},#{political_status},#{career},#{language},#{family},#{social},#{ifexist},#{education})
+    </insert>
+
+    <update id="delStaffFiles" parameterType="StaffInfo">
+        UPDATE staffinfo
+        <trim prefix="set" suffixOverrides=",">
+            ifexist=0
+        </trim>
+        WHERE staff_id=#{staff_id} and ifexist=1
+    </update>
+
+    <select id="searchStaffInfo" resultType="StaffInfo" parameterType="StaffInfo">
+        select * from staffinfo
+        WHERE
+        <if test="id!=''">id like #{id} and </if>
+        <if test="name!=''">name like #{name} and </if>
+        <if test="department!='all'">department in (${department}) and </if>
+        <if test="post!='all'">post in (${post}) and </if>
+        <if test="sex!='全部'">sex=#{sex} and </if>
+        staff_status=#{staff_status}
+    </select>
+
+    <select id="getAllDepartmentName" resultType="string">
+        select name from department
+    </select>
+
+    <select id="getAllPostName" resultType="string">
+        select name from post
+    </select>
+
+    <select id="getAllDepartmentInfo" resultType="Department">
+        select * from department
+    </select>
+
+    <select id="getAllPostInfo" resultType="Post" parameterType="string">
+        select * from post where department_id=#{department_id}
+    </select>
+
+    <insert id="addStaffInfo"  parameterType="StaffInfo" >
+        insert into staffinfo values(#{id},#{name},#{sex},#{idnumber},#{address},#{department},#{post},#{techpost},now(),#{staff_status})
+    </insert>
+
+    <select id="getPostPersonNumber" resultType="int">
+        SELECT count(*) from staffinfo
+        where post=#{arg0} and worktime BETWEEN #{arg1} and #{arg2}
+    </select>
+
+    <insert id="addProbationStaff"  parameterType="Probation" >
+        insert into probation values(#{staff_id},#{begintime},#{endtime})
+    </insert>
+
+    <select id="allprobation" resultType="StaffInfo_Probation">
+        select * from staffinfo sf,probation p
+        where sf.id=p.staff_id and sf.staff_status='试用期'
+    </select>
+</mapper>

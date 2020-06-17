@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | DataTables</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../index3.html" class="brand-link">
+      <img src="../dist/img/AdminLTELogo.png"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../index.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboard v1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../index2.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboard v2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../index3.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboard v3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="../widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Widgets
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Layout Options
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../layout/top-nav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Top Navigation</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Top Navigation + Sidebar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../layout/boxed.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Boxed</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../layout/fixed-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fixed Sidebar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../layout/fixed-topnav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fixed Navbar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../layout/fixed-footer.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fixed Footer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../layout/collapsed-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Collapsed Sidebar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Charts
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../charts/chartjs.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ChartJS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../charts/flot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Flot</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../charts/inline.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inline</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                UI Elements
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../UI/general.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>General</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/icons.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Icons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/buttons.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Buttons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/sliders.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sliders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/modals.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Modals & Alerts</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/navbar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Navbar & Tabs</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/timeline.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Timeline</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/ribbons.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ribbons</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Forms
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../forms/general.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>General Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/advanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Advanced Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/editors.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Editors</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/validation.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Validation</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Tables
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../tables/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Simple Tables</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../tables/data.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>DataTables</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../tables/jsgrid.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>jsGrid</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-item">
+            <a href="../calendar.html" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Calendar
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../gallery.html" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Gallery
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Mailbox
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../mailbox/mailbox.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inbox</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../mailbox/compose.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Compose</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../mailbox/read-mail.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Read</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Pages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../examples/invoice.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/profile.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/e-commerce.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>E-commerce</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/projects.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projects</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/project-add.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Add</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/project-edit.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Edit</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/project-detail.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Detail</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/contacts.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contacts</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Extras
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../examples/login.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Login</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/register.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/forgot-password.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Forgot Password</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/recover-password.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Recover Password</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/lockscreen.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lockscreen</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/legacy-user-menu.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Legacy User Menu</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/language-menu.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Language Menu</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/404.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 404</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/500.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 500</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/pace.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pace</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/blank.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Blank Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../starter.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Starter Page</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">MISCELLANEOUS</li>
+          <li class="nav-item">
+            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Documentation</p>
+            </a>
+          </li>
+          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-circle nav-icon"></i>
+              <p>Level 1</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                Level 1
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Level 2</p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Level 2
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Level 3</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Level 3</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Level 3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Level 2</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-circle nav-icon"></i>
+              <p>Level 1</p>
+            </a>
+          </li>
+          <li class="nav-header">LABELS</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Important</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>Warning</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>Informational</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>在职员工信息查询</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">控制台</a></li>
+              <li class="breadcrumb-item active">在职员工信息查询</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!--表单窗口 -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">高级查询</h3>
+
+                    <div class="card-tools">
+                      <button type="button" id="searchhide" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!--搜索框位置 -->
+
+
+                  <div class="card-body p-0" style="display: block;">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>工号</label>
+                            <input type="text" id="select_id" name="select_id" class="form-control" placeholder="默认:所有员工编号">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                          <label>姓名</label>
+                          <input type="text" id="select_name" name="select_name" class="form-control" placeholder="默认:所有">
+                        </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-md-6" data-select2-id="84">
+                        <div class="form-group" data-select2-id="83">
+                          <label>部门</label>
+                          <select id="select_department" name="select_department" class="select2 select2-hidden-accessible" multiple="" data-placeholder="默认:所有部门" style="width: 100%;" data-select2-id="8" tabindex="-1" aria-hidden="true">
+                            <option data-select2-id="1">-测试部门1</option>
+                            <option data-select2-id="2">-测试部门2</option>
+
+                          </select>
+                        </div>
+                      </div>
+                        <div class="col-md-6" data-select2-id="84">
+                        <div class="form-group" data-select2-id="83">
+                          <label>岗位</label>
+                          <select id="select_post" name="select_post" class="select2 select2-hidden-accessible" multiple="" data-placeholder="默认:所有" style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                            <option data-select2-id="85">-测试岗位1</option>
+                            <option data-select2-id="86">-测试岗位2</option>
+                            <option data-select2-id="87">-测试岗位3</option>
+                            <option data-select2-id="88">-测试岗位4</option>
+                            <option data-select2-id="89">-测试岗位5</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>性别</label>
+                            <select id="select_sex" name="select_sex" class="form-control">
+                              <option>全部</option>
+                              <option>男</option>
+                              <option>女</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>就职状态</label>
+                            <select id="select_staff_status" name="select_staff_status" class="form-control">
+                              <option>正式员工</option>
+                              <option>试用期</option>
+                              <option>调休中</option>
+                              <option>离职</option>
+                              <option>辞退</option>
+                              <option>退休</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+<!--                    <ul class="products-list product-list-in-card pl-2 pr-2">-->
+<!--                      <li class="item">-->
+<!--                        <div class="product-img">-->
+<!--                          <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">-->
+<!--                        </div>-->
+<!--                        <div class="product-info">-->
+<!--                          <a href="javascript:void(0)" class="product-title">Samsung TV-->
+<!--                            <span class="badge badge-warning float-right">$1800</span></a>-->
+<!--                          <span class="product-description">-->
+<!--                        Samsung 32" 1080p 60Hz LED Smart HDTV.-->
+<!--                      </span>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      &lt;!&ndash; /.item &ndash;&gt;-->
+<!--                      <li class="item">-->
+<!--                        <div class="product-img">-->
+<!--                          <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">-->
+<!--                        </div>-->
+<!--                        <div class="product-info">-->
+<!--                          <a href="javascript:void(0)" class="product-title">Bicycle-->
+<!--                            <span class="badge badge-info float-right">$700</span></a>-->
+<!--                          <span class="product-description">-->
+<!--                        26" Mongoose Dolomite Men's 7-speed, Navy Blue.-->
+<!--                      </span>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      &lt;!&ndash; /.item &ndash;&gt;-->
+<!--                      <li class="item">-->
+<!--                        <div class="product-img">-->
+<!--                          <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">-->
+<!--                        </div>-->
+<!--                        <div class="product-info">-->
+<!--                          <a href="javascript:void(0)" class="product-title">-->
+<!--                            Xbox One <span class="badge badge-danger float-right">-->
+<!--                        $350-->
+<!--                      </span>-->
+<!--                          </a>-->
+<!--                          <span class="product-description">-->
+<!--                        Xbox One Console Bundle with Halo Master Chief Collection.-->
+<!--                      </span>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      &lt;!&ndash; /.item &ndash;&gt;-->
+<!--                      <li class="item">-->
+<!--                        <div class="product-img">-->
+<!--                          <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">-->
+<!--                        </div>-->
+<!--                        <div class="product-info">-->
+<!--                          <a href="javascript:void(0)" class="product-title">PlayStation 4-->
+<!--                            <span class="badge badge-success float-right">$399</span></a>-->
+<!--                          <span class="product-description">-->
+<!--                        PlayStation 4 500GB Console (PS4)-->
+<!--                      </span>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      &lt;!&ndash; /.item &ndash;&gt;-->
+<!--                    </ul>-->
+                  </div>
+                  <!-- 搜索按钮位置 -->
+                  <div class="card-footer text-center" style="display: block;">
+                    <a href="javascript:void(0)" class="uppercase" onclick="adsearch()">搜索</a>
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+
+
+              </div>
+              <!-- 信息显示区域 -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>工号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>部门</th>
+                    <th>职位</th>
+                    <th>就职状态</th>
+                    <th>试用期开始时间</th>
+                    <th>转正时间</th>
+                    <th>行为</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="probationinfo:${allprobationinfo}">
+                    <td th:text="${probationinfo.getId()}">测试数据</td>
+                    <td th:text="${probationinfo.getName()}">测试数据</td>
+                    <td th:text="${probationinfo.getSex()}">测试数据</td>
+                    <td th:text="${probationinfo.getDepartment()}">测试数据</td>
+                    <td th:text="${probationinfo.getPost()}">测试数据</td>
+                    <td th:text="${probationinfo.getStaff_status()}">测试数据</td>
+                    <td th:text="${#dates.format(probationinfo.getBegintime(),'yyyy-MM-dd')}">测试数据</td>
+                    <td th:text="${#dates.format(probationinfo.getEndtime(),'yyyy-MM-dd')}">测试数据</td>
+                    <td>
+                      <a class="btn btn-sm btn-primary"  href="javascript:void(0);" th:onclick="getStaffInfo([[${probationinfo.getId()}]]);">转正</a>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-warning" th:onclick="continueProbation([[${probationinfo.getId()}]],'input',[[${probationinfo.getEndtime()}]],[[${probationinfo.getBegintime()}]]);">延期</button>
+                        <button type="button" class="btn btn-sm btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                          <span class="sr-only">Toggle Dropdown</span>
+                          <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" href="javascript:void(0);" th:onclick="continueProbation([[${probationinfo.getId()}]],'week',[[${probationinfo.getEndtime()}]],[[${probationinfo.getBegintime()}]]);">延期一周</a>
+                            <a class="dropdown-item" href="javascript:void(0);" th:onclick="continueProbation([[${probationinfo.getId()}]],'month',[[${probationinfo.getEndtime()}]],[[${probationinfo.getBegintime()}]]);">延期一月</a>
+                            <a class="dropdown-item" href="javascript:void(0);" th:onclick="continueProbation([[${probationinfo.getId()}]],'halfyear',[[${probationinfo.getEndtime()}]],[[${probationinfo.getBegintime()}]]);">延期半年</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void(0);" th:onclick="continueProbation([[${probationinfo.getId()}]],'input',[[${probationinfo.getEndtime()}]],[[${probationinfo.getBegintime()}]]);">自定义延期时间</a>
+                          </div>
+                        </button>
+                      </div>
+                      <a class="btn btn-sm btn-danger"  href="javascript:void(0);" th:onclick="getFilesInfo([[${probationinfo.getId()}]]);">拒绝</a>
+<!--                      <a class="btn btn-sm btn-danger" th:href="@{/delemp/}+${staffinfo.id}">提取档案</a>-->
+                    </td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>工号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>部门</th>
+                    <th>职位</th>
+                    <th>就职状态</th>
+                    <th>试用期开始时间</th>
+                    <th>转正时间</th>
+                    <th>行为</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.6-pre
+
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!--员工转正模态框 Model-->
+<div class="modal fade" id="upProbationCorrect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h7 align="left" class="modal-title" id="myModalLabel">试用期员工转正</h7>
+        <span class="badge bg-warning">试 用 期</span>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-light alert-dismissible">
+          <h5><i class="icon fas fa-exclamation-triangle"></i> 警告!</h5>
+          <br>
+          <h5 id="staff_id" style="display: none;"></h5>
+          <h6 id="probationMessage">test</h6>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" onclick="upInfo()">确认转正</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="continueProbationModel1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h7 align="left" class="modal-title" id="myModalLabel">试用期员工延期</h7>
+        <span class="badge bg-warning">试 用 期</span>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-light alert-dismissible">
+          <h5><i class="icon fas fa-exclamation-triangle"></i> 警告!</h5>
+          <br>
+          <h5 id="staff_id1" style="display: none;"></h5>
+          <h6 id="probationMessage1">test</h6>
+          <div id="row_probation" class="row">
+            <div class="col-sm-12">
+              <!--试用期起止时间 -->
+              <div class="form-group">
+                <label>试用期结束时间延期至：</label>
+                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                  <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" id="editinputtime"/>
+                  <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button id="confirmContinueProbation1" type="button" class="btn btn-warning" >确认延期</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="continueProbationModel2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h7 align="left" class="modal-title" id="myModalLabel">试用期员工延期</h7>
+        <span class="badge bg-warning">试 用 期</span>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-light alert-dismissible">
+          <h5><i class="icon fas fa-exclamation-triangle"></i> 警告!</h5>
+          <br>
+          <h5 id="staff_id2" style="display: none;"></h5>
+          <h6 id="probationMessage2">test</h6>
+          <h6 id="probationMessage_line">test</h6>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" id="confirmContinueProbation" class="btn btn-warning">确认延期</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+
+<!--验证操作员信息模态框 Model-->
+<div class="modal fade" id="getFilesDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 align="left" class="modal-title" id="myModalLabel2">验证您的个人信息</h5>
+      </div>
+      <div class="modal-body">
+        <div class="lockscreen-wrapper">
+          <div class="lockscreen-logo">
+            <h4>fengjianche</h4>
+          </div>
+
+          <!-- START LOCK SCREEN ITEM -->
+          <div class="lockscreen-item">
+            <!-- lockscreen image -->
+            <div class="lockscreen-image">
+              <img src="../dist/img/user1-128x128.jpg" alt="User Image">
+            </div>
+            <!-- /.lockscreen-image -->
+
+            <!-- lockscreen credentials (contains the form) -->
+            <form class="lockscreen-credentials">
+              <div class="input-group">
+                <input type="password" class="form-control" placeholder="密码">
+                <div class="input-group-append">
+                  <button type="button" class="btn" id="checking"><i class="fas fa-arrow-right text-muted"></i></button>
+                </div>
+              </div>
+            </form>
+            <!-- /.lockscreen credentials -->
+          <br>
+            <br>
+
+
+          </div>
+          <div class="alert alert-default-light alert-dismissible">
+            <h5><i class="icon fas fa-exclamation-triangle"></i> 警告!</h5>
+            <br>
+            您之后的操作将会被记录于操作日志当中，请确认您的账户以继续
+          </div>
+          <!-- /.lockscreen-item -->
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="continueProbationModel3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h7 align="left" class="modal-title" id="myModalLabel">试用期拒绝</h7>
+        <span class="badge bg-warning">试 用 期</span>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-light alert-dismissible">
+          <h5><i class="icon fas fa-exclamation-triangle"></i> 警告!</h5>
+          <br>
+          <h5 id="staff_id3" style="display: none;"></h5>
+          <h6 id="probationMessage3">test</h6>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" id="confirmContinueProbation3" class="btn btn-warning">确认拒绝</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+
+
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <h5><i class="icon fas fa-check"></i> Alert!</h5>
+  Success alert preview. This alert is dismissable.
+</div>
+
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<script src="../plugins/jquery/dateformat.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- date-range-picker -->
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- page script -->
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="../plugins/moment/moment.min.js"></script>
+<script src="../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- date-range-picker -->
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script>
+  $(function () {
+    //  加载员工信息
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+      //Initialize Select2 Elements
+      $('.select2').select2()
+
+      //Initialize Select2 Elements
+      $('.select2bs4').select2({
+          theme: 'bootstrap4'
+      })
+
+      //Date range picker
+      $('#reservationdate').datetimepicker({
+          format: 'YYYY-MM-DD'
+      });
+      //Date range picker
+      $('#reservation').daterangepicker({
+          locale: {
+              format: "YYYY/MM/DD"
+          }
+      })
+      //Date range picker with time picker
+      $('#reservationtime').daterangepicker({
+          timePicker: true,
+          timePickerIncrement: 30,
+          format: 'YYYY-MM-DD'
+      })
+
+      //Timepicker
+      $('#timepicker').datetimepicker({
+          format: 'YYYY-MM-DD'
+      })
+
+
+      //加载高级搜索 所有部门下拉框信息
+      $.ajax({
+          url : "http://localhost:8081/PersonnelManage_war_exploded/staffinfo/getalldepartment",
+          type : "GET",
+          dataType : "json",
+          timeout : 1000,
+          error : function (result) {
+              alert("加载部门信息时发生未知错误，请检查服务端错误信息");
+
+          },
+          success : function (result) {
+              $("#select_department").empty();
+              for(var i=0;i<result.length;i++){
+                  //先创建好select里面的option元素
+                  var option=document.createElement("option");
+                  //转换DOM对象为JQ对象,好用JQ里面提供的方法 给option的value赋值
+                  $(option).val("-"+result[i]);
+                  //给option的text赋值,这就是你点开下拉框能够看到的东西
+                  $(option).text("-"+result[i]);
+                  //获取select 下拉框对象,并将option添加进select
+                  $('#select_department').append(option);
+              }
+          }
+      });
+
+      //加载高级搜索 所有岗位下拉框信息
+      $.ajax({
+          url : "http://localhost:8081/PersonnelManage_war_exploded/staffinfo/getallpost",
+          type : "GET",
+          dataType : "json",
+          timeout : 1000,
+          error : function (result) {
+              alert("加载职位信息时发生未知错误，请检查服务端错误信息");
+          },
+          success : function (result) {
+              $("#select_post").empty();
+              for(var i=0;i<result.length;i++){
+                  //先创建好select里面的option元素
+                  var option=document.createElement("option");
+                  //转换DOM对象为JQ对象,好用JQ里面提供的方法 给option的value赋值
+                  $(option).val("-"+result[i]);
+                  //给option的text赋值,这就是你点开下拉框能够看到的东西
+                  $(option).text("-"+result[i]);
+                  //获取select 下拉框对象,并将option添加进select
+                  $('#select_post').append(option);
+              }
+          }
+      });
+      $("#searchhide").click();
+
+
+  });
+</script>
+
+<!--弹出模态框，对员工进行转正操作-->
+<script>
+    function getStaffInfo(id){
+    //    获取用户资料，传id值进入函数中，ajax查询
+        $.get("http://localhost:8081/PersonnelManage_war_exploded/staffinfo/getstaffinfo",{"id":id},function(result){
+            $('#upProbationCorrect').modal('show');
+            $("#staff_id").html(result.id);
+            $('#probationMessage').html("确认为员工 :"+result.id+" ("+result.name+") 办理转正业务？" );
+        });
+
+    }
+</script>
+
+
+<script>
+//格式化日期
+function formateDate(date) {
+var date = new Date(date);
+var y = date.getFullYear();
+var m = date.getMonth() +1;
+var d = date.getDate();
+m = m > 9 ? m : '0' + m;
+return y + '-' + m + '-' + d ;
+}
+</script>
+
+<script>
+  function continueProbation(id,temp,endtime,begintime) {
+      var endtime_new = new Date(endtime);
+      //endtime = endtime.replace(/-/g, '/');
+      var temptime = "";
+      if(temp=="week"){
+          temptime="一周";
+          endtime_new.setDate(endtime_new.getDate() + 7);//加7天
+      }
+      if(temp=="month"){
+          temptime="一个月";
+          endtime_new.setMonth(endtime_new.getMonth() + 1);//加1个月
+      }
+      if(temp=="halfyear"){
+          temptime="六个月";
+          endtime_new.setMonth(endtime_new.getMonth() + 6);//加3个月
+      }
+      endtime_new = formateDate(endtime_new);
+      begintime = formateDate(begintime);
+      var endtime_input_new = "";
+
+      if(temp=="input"){
+          $('#continueProbationModel1').modal('show');
+          $.get("http://localhost:8081/PersonnelManage_war_exploded/staffinfo/getstaffinfo",{"id":id},function(result){
+              $("#staff_id1").html(result.id);
+              $('#probationMessage1').html("员工："+result.id+" ("+result.name+") 试用期起止时间为： "+begintime+" -> "+ endtime_new );
+          });
+
+      }
+      else{
+          $('#continueProbationModel2').modal('show');
+          //    获取用户资料，传id值进入函数中，ajax查询
+          $.get("http://localhost:8081/PersonnelManage_war_exploded/staffinfo/getstaffinfo",{"id":id},function(result){
+              $("#staff_id2").html(result.id);
+              $('#probationMessage2').html("确认为员工："+result.id+" ("+result.name+") 延长试用期 "+temptime+" ？ 试用期将延至 "+ endtime_new );
+              $('#probationMessage_line').html("确认后，试用期起止将更新为 "+begintime+" 至 "+endtime_new);
+
+          });
+      }
+
+      //封装输入延期时间
+
+
+      //监听
+      //监听 button
+      $("#confirmContinueProbation").click(function() {
+          $.ajax({
+              url : "http://localhost:8081/PersonnelManage_war_exploded/probationmanage/probationcontinue",
+              type : "POST",
+              data : {"staff_id":id,"begintime":begintime,"endtime":endtime_new},
+              dataType : "text",
+              timeout : 1000,
+              error : function (data) {
+                  alert("延期 失败，请检查服务端错误信息");
+                  $('#continueProbationModel2').modal('hide');
+                  //location.reload();
+              },
+              success : function (data) {
+                  if(data=="ok"){
+                      alert("已延期");
+                      $('#continueProbationModel2').modal('hide');
+                      location.reload();
+                  }else{
+                      alert("转延期失败，请联系管理员");
+                      $('#continueProbationModel2').modal('hide');
+                  }
+
+              }
+          });
+      })
+      $("#confirmContinueProbation1").click(function() {
+          endtime_input_new = $('#editinputtime').val();
+          endtime_input_new = formateDate(endtime_input_new);
+          endtime = formateDate(endtime);
+
+          if(endtime_input_new <= endtime){
+              alert("输入的延长日期小于结束试用时间");
+          }else{
+          $.ajax({
+              url : "http://localhost:8081/PersonnelManage_war_exploded/probationmanage/probationcontinue",
+              type : "POST",
+              data : {"staff_id":id,"begintime":begintime,"endtime":endtime_input_new},
+              dataType : "text",
+              timeout : 1000,
+              error : function (data) {
+                  alert("延期 失败，请检查服务端错误信息");
+                  $('#continueProbationModel2').modal('hide');
+                  //location.reload();
+              },
+              success : function (data) {
+                  if(data=="ok"){
+                      alert("已延期");
+                      $('#continueProbationModel2').modal('hide');
+                      location.reload();
+                  }else{
+                      alert("转延期失败，请联系管理员");
+                      $('#continueProbationModel2').modal('hide');
+                  }
+
+              }
+          });
+          }
+      })
+
+  }
+  </script>
+
+<!--修改信息提交更改-->
+<script>
+    function upInfo(){
+        //传id值进入函数中，ajax查询
+        var id=$("#staff_id").html();
+        $.ajax({
+            url : "http://localhost:8081/PersonnelManage_war_exploded/probationmanage/probationreturn",
+            type : "POST",
+            data : {"id":id,"staff_status":"正式员工"},
+            dataType : "text",
+            timeout : 1000,
+            error : function (data) {
+                alert("转正失败，请检查服务端错误信息");
+                $('#upProbationCorrect').modal('hide');
+                //location.reload();
+            },
+            success : function (data) {
+                if(data=="ok"){
+                    alert("已转正");
+                    $('#upProbationCorrect').modal('hide');
+                    location.reload();
+                }else{
+                    alert("转正失败，请联系管理员");
+                    $('#upProbationCorrect').modal('hide');
+                }
+
+            }
+        });
+
+    }
+</script>
+
+
+<!--弹出模态框，验证操作人员信息-->
+<script>
+    function getFilesInfo(id){
+        $('#getFilesDialog').modal('show');
+        $('#myModalLabel2').html("正在调取 "+id+" 的个人档案");
+        document.getElementById("checking").addEventListener("click", checked);
+        function checked() {
+           //隐藏
+            $('#getFilesDialog').modal('hide');
+            $('#continueProbationModel3').modal('show');
+            //获取用户资料，传id值进入函数中，ajax查询
+            $.get("http://localhost:8081/PersonnelManage_war_exploded/staffinfo/getstaffinfo",{"id":id},function(result){
+                $("#staff_id3").html(result.id);
+                $('#probationMessage3').html("您将拒绝员工 ："+result.id+" ("+result.name+") 的试用期资格，请确保收到材料并继续，以辞退该员工");
+            });
+
+        //监听 button
+        $("#confirmContinueProbation3").click(function() {
+            $.ajax({
+                url : "http://localhost:8081/PersonnelManage_war_exploded/probationmanage/refuseprobation",
+                type : "POST",
+                data : {"id":id},
+                dataType : "text",
+                timeout : 1000,
+                error : function (data) {
+                    alert("拒绝失败，请检查服务端错误信息");
+                    $('#continueProbationModel3').modal('hide');
+                    //location.reload();
+                },
+                success : function (data) {
+                    if(data=="ok"){
+                        alert("已拒绝");
+                        $('#continueProbationModel3').modal('hide');
+                        location.reload();
+                    }else{
+                        alert("失败");
+                        $('#continueProbationModel3').modal('hide');
+                    }
+
+                }
+            });
+        })
+
+        }
+
+    }
+</script>
+<!--封装高级搜索模块-->
+<script>
+  function adsearch() {
+      var id=$('#select_id').val();
+      var name=$('#select_name').val();
+      var department=$('#select_department option:selected').text();
+      var post=$('#select_post option:selected').text();
+      var sex=$('#select_sex option:selected').text();
+      var staff_status=$('#select_staff_status option:selected').text();
+      if(department=="")
+          department="all";
+      if(post=="")
+          post="all";
+
+      // $.ajax({
+      //     url : "http://localhost:8081/PersonnelManage_war_exploded/staffinfo/searchstaff",
+      //     type : "POST",
+      //     data : {"id":id,"name":name,"department":department,"post":post,"sex":sex,"staff_status":staff_status},
+      //     dataType : "text",
+      //     timeout : 1000,
+      //     error : function (data) {
+      //         alert("查询发生未知错误，请检查服务端错误信息");
+      //     },
+      //     success : function (data) {
+      //         location.replace(location);
+      //     }
+      // });
+      window.location.href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/searchstaff?id="+id+"&name="+name+"&department="+department+"&post="+post+"&sex="+sex+"&staff_status="+staff_status;
+
+  }
+</script>
+
+</body>
+</html>

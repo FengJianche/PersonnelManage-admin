@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | General Form Elements</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- 上方菜单栏 -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+
+        <!--      人员资料显示区-->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="fa fa-user-alt"></i>
+
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+              <h4 href="#" class="d-block">fengjianche</h4>
+            </div>
+
+          </div>
+            </span>
+            <span class="dropdown-item dropdown-header">个人中心</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">退出登录</a>
+          </div>
+        </li>
+        <!--      <li class="nav-item">-->
+        <!--        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">-->
+        <!--          <i class="fas fa-th-large"></i>-->
+        <!--        </a>-->
+        <!--      </li>-->
+      </ul>
+    </nav>
+
+
+    <!--  左侧主菜单栏 -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-link">
+
+        <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+
+        <span class="brand-text font-weight-light">人事管理系统</span>
+      </a>
+
+      <!-- Sidebar 菜单栏选项 -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">fengjianche</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  工作区
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/index.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>总览</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
+            <!--添加自定义测试区，员工信息管理-->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-id-card"></i>
+                <p>
+                  员工信息管理
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/allstaff" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>在职员工信息查询</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!--添加自定义测试区，员工入职管理-->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user-plus"></i>
+                <p>
+                  员工入职管理
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/alldepartmentinfo" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>录入员工入职信息</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/allprobation" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>员工试用期管理</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+            <!--添加自定义测试区，员工调动管理-->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-exchange-alt"></i>
+                <p>
+                  员工调动管理
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/alltransferrecord" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>调动记录查询</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/alldepartmentinfo" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>在职员工调动</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/staffdimission" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>员工离职管理</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!--添加自定义测试区，系统管理-->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-plug"></i>
+                <p>
+                  系统监控管理中心
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="http://localhost:8081/PersonnelManage_war_exploded/system/alldepartmentpostinfo" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>部门职位管理</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- 内容 以及内容区域 -->
+    <div class="content-wrapper">
+      <!-- 面包屑 -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">导航</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">工作区</a></li>
+                <li class="breadcrumb-item active">导航</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">General Elements</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form role="form">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Text</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Text Disabled</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." disabled="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Textarea</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Textarea Disabled</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." disabled=""></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- input states -->
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputSuccess"><i class="fas fa-check"></i> Input with
+                      success</label>
+                    <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputWarning"><i class="far fa-bell"></i> Input with
+                      warning</label>
+                    <input type="text" class="form-control is-warning" id="inputWarning" placeholder="Enter ...">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label" for="inputError"><i class="far fa-times-circle"></i> Input with
+                      error</label>
+                    <input type="text" class="form-control is-invalid" id="inputError" placeholder="Enter ...">
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- checkbox -->
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox">
+                          <label class="form-check-label">Checkbox</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" checked="">
+                          <label class="form-check-label">Checkbox checked</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" disabled="">
+                          <label class="form-check-label">Checkbox disabled</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- radio -->
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radio1">
+                          <label class="form-check-label">Radio</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radio1" checked="">
+                          <label class="form-check-label">Radio checked</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" disabled="">
+                          <label class="form-check-label">Radio disabled</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Select</label>
+                        <select class="form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Select Disabled</label>
+                        <select class="form-control" disabled="">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- Select multiple-->
+                      <div class="form-group">
+                        <label>Select Multiple</label>
+                        <select multiple="" class="form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Select Multiple Disabled</label>
+                        <select multiple="" class="form-control" disabled="">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+
+          </div>
+
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.6-pre
+
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script>
+</body>
+</html>

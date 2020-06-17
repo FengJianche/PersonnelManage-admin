@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.TransferDao">
+    <!-- 查询account列表 -->
+    <select id="allStaffInfo" resultType="StaffInfo">
+        select *
+        from staffinfo
+        where staff_status='正式员工'
+    </select>
+
+    <select id="getAllDepartmentInfo" resultType="Department">
+        select * from department
+    </select>
+
+    <select id="searchStaffInfo" resultType="StaffInfo" parameterType="StaffInfo">
+        select * from staffinfo
+        WHERE
+        <if test="id!=''">id like #{id} and </if>
+        <if test="name!=''">name like #{id} and </if>
+        <if test="department!='all'">department in (${department}) and </if>
+        <if test="post!='all'">post in (${post}) and </if>
+        <if test="sex!='全部'">sex=#{sex} and </if>
+        staff_status=#{staff_status}
+    </select>
+
+    <insert id="addTransferInfo" parameterType="TransferRecord">
+        insert into transferrecord values(#{staff_id},#{old_department},#{old_post},#{new_department},#{new_post},now(),#{admin_id},#{reason})
+    </insert>
+
+    <update id="upStaffDpPsInfo">
+        UPDATE staffinfo
+        <trim prefix="set" suffixOverrides=",">
+            department=#{arg1},
+            post=#{arg2},
+        </trim>
+        WHERE id=#{arg0}
+    </update>
+
+    <select id="allTransferRecord" resultType="StaffInfo_TransferRecord">
+        SELECT si.id,name,sex,worktime,staff_status,old_department,old_post,new_department,new_post,optiontime,admin_id,reason
+        from staffinfo si,transferrecord tf
+        where si.id=tf.staff_id
+    </select>
+
+    <update id="upStaffStaffStatus">
+        UPDATE staffinfo
+        <trim prefix="set" suffixOverrides=",">
+            staff_status=#{arg1},
+        </trim>
+        WHERE id=#{arg0}
+    </update>
+
+
+</mapper>

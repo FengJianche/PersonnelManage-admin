@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | General Form Elements</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- 上方菜单栏 -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+
+      <!--      人员资料显示区-->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fa fa-user-alt"></i>
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+              <h4 href="#" class="d-block">fengjianche</h4>
+            </div>
+
+          </div>
+            </span>
+          <span class="dropdown-item dropdown-header">个人中心</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">退出登录</a>
+        </div>
+      </li>
+      <!--      <li class="nav-item">-->
+      <!--        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">-->
+      <!--          <i class="fas fa-th-large"></i>-->
+      <!--        </a>-->
+      <!--      </li>-->
+    </ul>
+  </nav>
+
+
+  <!--  左侧主菜单栏 -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link">
+
+      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+
+      <span class="brand-text font-weight-light">人事管理系统</span>
+    </a>
+
+    <!-- Sidebar 菜单栏选项 -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">fengjianche</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                工作区
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/index.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>总览</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+          <!--添加自定义测试区，员工信息管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                员工信息管理
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/allstaff" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>在职员工信息查询</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--添加自定义测试区，员工入职管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-plus"></i>
+              <p>
+                员工入职管理
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/alldepartmentinfo" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>录入员工入职信息</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/allprobation" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>员工试用期管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <!--添加自定义测试区，员工调动管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-exchange-alt"></i>
+              <p>
+                员工调动管理
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/alltransferrecord" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>调动记录查询</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/alldepartmentinfo" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>在职员工调动</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/staffdimission" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>员工离职管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--添加自定义测试区，系统管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-plug"></i>
+              <p>
+                系统监控管理中心
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/system/alldepartmentpostinfo" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>部门职位管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- 内容 以及内容区域 -->
+  <div class="content-wrapper">
+    <!-- 面包屑 -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">导航</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">工作区</a></li>
+              <li class="breadcrumb-item active">导航</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- 员工信息录入窗体 -->
+          <div class="col-md-12">
+            <!-- general form elements disabled -->
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">员工入职信息登记</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form role="form">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- 姓名 -->
+                      <div class="form-group">
+                        <label>姓名</label>
+                        <input id="input_name" type="text" class="form-control" placeholder="请输入姓名">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- 身份证 -->
+                      <div class="form-group">
+                        <label>身份证号码</label>
+                        <input id="input_idnumber" type="text" class="form-control" placeholder="请输入身份证号码">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>性别</label>
+                        <select id="input_sex" class="form-control select2" style="width: 100%;">
+                          <option selected="selected">男</option>
+                          <option>女</option>
+                        </select>
+                      </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- 联系方式 -->
+                      <div class="form-group">
+                        <label>联系电话</label>
+                        <input id="input_phone" type="text" class="form-control" placeholder="11位手机号码">
+                      </div>
+                    </div>
+                  </div>
+
+<!--                  居住地址-->
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- 居住地址 -->
+                      <div class="form-group">
+                        <label>居住地址</label>
+                        <input type="text" id="input_address" class="form-control" placeholder="请输入居住地址">
+                      </div>
+                    </div>
+                  </div>
+<!--                  职位选择-->
+                  <div class="row">
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>部门</label>
+                        <select id="select_department_entry"  class="form-control select2"  th:field="*{alldepartmentinfo}" th:remove="none" onchange="getpostinfo()" style="width: 100%;">
+                          <option th:value="1" th:text="请选择部门" th:selected="selected">请选择部门</option>
+                          <option th:each="departmentinfo : ${alldepartmentinfo}"
+                                  th:value="${departmentinfo.id}" th:text="${departmentinfo.name}"></option>
+                        </select>
+                      </div>
+
+                    </div>
+                      <!-- /.form-group -->
+                    <div class="col-md-6" >
+                      <div class="form-group" >
+                        <label>岗位</label>
+                        <select id="select_post_entry" class="form-control select2" style="width: 100%;">
+                          <option selected="selected" >请选择岗位</option>
+                        </select>
+                      </div>
+                    </div>
+
+                  </div>
+
+<!--                  试用期选择-->
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- 试用期 -->
+                      <div class="form-group">
+                        <label>是否为试用期员工</label><br>
+                        <input id="input_iftrue" type="checkbox" name="my-checkbox" onchange="loadProbation()" data-bootstrap-switch>
+                      </div>
+                    </div>
+                  </div>
+
+
+<!--                  试用期信息录入-->
+<!--                  试用期时间选择-->
+                  <div id="row_probation" class="row">
+                    <div class="col-sm-12">
+                      <!--试用期起止时间 -->
+                      <div class="form-group">
+                        <label>试用期起止时间</label>
+
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="far fa-calendar-alt"></i>
+                      </span>
+                          </div>
+                          <input  type="text" class="form-control float-right" id="reservation">
+                        </div>
+                        <!-- /.input group -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Date -->
+
+
+                    <!-- /.col -->
+
+                </form>
+                <br><br>
+                <button type="button" class="btn btn-block btn-outline-primary" onclick="confirmEntry()">确认录入</button>
+              </div>
+              <!-- /.card-body -->
+            </div>
+
+            <!-- /.card -->
+          </div>
+          <!--/员工信息录入窗体 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.6-pre
+
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!--定义加载模态框-->
+<div class="modal fade" id="modal-overlay">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content bg-secondary">
+      <div class="overlay d-flex justify-content-center align-items-center">
+        <i class="fas fa-2x fa-sync fa-spin"></i>
+      </div>
+
+      <div class="modal-body">
+        <p id="message1">等待服务端回执</p>
+      </div>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="../plugins/moment/moment.min.js"></script>
+<script src="../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- date-range-picker -->
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- Toastr -->
+<script src="../plugins/toastr/toastr.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch('state');
+        });
+
+
+        //Date range picker
+        $('#reservationdate').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+        //Date range picker
+        $('#reservation').daterangepicker({
+            locale: {
+                format: "YYYY/MM/DD"
+            }
+        })
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            format: 'YYYY-MM-DD'
+        })
+
+        //Timepicker
+        $('#timepicker').datetimepicker({
+            format: 'YYYY-MM-DD'
+        })
+
+        document.getElementById("row_probation").style.display="none";
+        //控件加载结束
+
+    });
+</script>
+<!--休眠进程-->
+<script>
+    function sleep() {
+    }
+</script>
+
+<!--选择部门，获取职位信息-->
+<script>
+    function getpostinfo() {
+        var options=$("#select_department_entry option:selected"); //获取选中的项
+        //alert(options.val()); //拿到选中项的值
+        //alert(options.text()); //拿到选中项的文本
+        var department_name = options.text();
+        var department_id = options.val();
+        //加载岗位数据
+        $.ajax({
+            url : "http://localhost:8081/PersonnelManage_war_exploded/staffinfo/allpostinfo",
+            type : "GET",
+            data : {"department_id":department_id},
+            dataType : "json",
+            timeout : 1000,
+            error : function () {
+                alert("加载 "+department_name+" 信息时发生未知错误，请检查服务端错误信息");
+            },
+            success : function (result) {
+                $("#select_post_entry").empty();
+                for(var i=0;i<result.length;i++){
+                    //先创建好select里面的option元素
+                    var option=document.createElement("option");
+                    //转换DOM对象为JQ对象,好用JQ里面提供的方法 给option的value赋值
+                    $(option).val(result[i].id);
+                    //给option的text赋值,这就是你点开下拉框能够看到的东西
+                    $(option).text(result[i].name);
+                    //获取select 下拉框对象,并将option添加进select
+                    $('#select_post_entry').append(option);
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    function loadProbation() {
+        //载入试用期信息输入框
+        if($("input[type='checkbox']").is(':checked')){
+            document.getElementById("row_probation").style.display="inline";
+        }else
+            document.getElementById("row_probation").style.display="none";
+    }
+</script>
+
+<!--数据校验区-->
+<script>
+    function dataCheck(name,idnumber,address,department,post) {
+        var error_flag=0;
+        var input_name = document.getElementById('input_name');
+        var input_idnumber = document.getElementById('input_idnumber');
+
+        var input_address = document.getElementById('input_address');
+
+        //姓名判断
+        var re = /^[0-9]+.?[0-9]*$/;   //判断字符串是否为数字,//若判断正整数，则后边是：/^[1-9]+[0-9]*]*$/
+        if ((re.test(name))|| name=="") {
+            input_name.setAttribute("class", "form-control is-invalid");
+            error_flag++;
+            toastr.error('姓名格式错误');
+        }else{
+            input_name.setAttribute("class", "form-control is-valid");
+        }
+        //身份证校验
+        if(!/^\d{17}(\d|x)$/i.test(idnumber)){
+            input_idnumber.setAttribute("class", "form-control is-invalid");
+            toastr.error('身份证长度或格式错误');
+            error_flag++;
+        }else{
+            input_idnumber.setAttribute("class", "form-control is-valid");
+        }
+        //地址校验不为空
+        if (address=="") {
+            input_address.setAttribute("class", "form-control is-invalid");
+            error_flag++;
+            toastr.error('地址为空');
+        }else{
+            input_address.setAttribute("class", "form-control is-valid");
+        }
+        //部门校验不为空
+        if (department=="请选择部门") {
+            error_flag++;
+            toastr.error('未选择部门');
+        }
+        //职位校验不为空
+        if (post=="请选择岗位") {
+            error_flag++;
+            toastr.error('您未选择职位');
+        }
+        return error_flag;
+
+
+    }
+</script>
+
+<script>
+    function confirmEntry() {
+        //location.reload();  //实现页面重新加载
+        //进行js校验输入内容
+        //保存员工数据
+
+        //封装保存信息
+        var name =$('#input_name').val();
+
+        var sex_options=$("#input_sex option:selected"); //获取选中的项
+        var sex = sex_options.text();
+        var idnumber = $('#input_idnumber').val();
+        var address = $('#input_address').val();
+
+        //封装部门岗位名称
+        var department_options=$("#select_department_entry option:selected"); //获取选中的项
+        var department = department_options.text();
+        var post_options=$("#select_post_entry option:selected"); //获取选中的项
+        var post = post_options.text();
+
+        var probation = "";
+        var staff_status = "正式员工"
+
+        //封装员工id 封装部门岗位id 服务端进行解析
+        var id =department_options.val()+post_options.val();
+
+        var begin_end_time = "";
+        //判断是否为试用期员工
+        if($("input[type='checkbox']").is(':checked')){
+            staff_status = "试用期";
+            probation = $('#reservation').val();
+        }
+
+        //数据校验js
+        var error = dataCheck(name,idnumber,address,department,post);
+
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        if(error==0){
+            $('#modal-overlay').modal('show');
+            $(document).Toasts('create', {
+                class: 'bg-success',
+                title: '服务端回执',
+                body: '正在校验输入规则......'
+            });
+            setTimeout(sleep,500);
+            $(document).Toasts('create', {
+                class: 'bg-success',
+                title: '服务端回执',
+                body: '正在校验身份证号是否重复......'
+            });
+            setTimeout(sleep,500);
+            $(document).Toasts('create', {
+                class: 'bg-success',
+                title: '服务端回执',
+                body: '正在判断是否为试用期员工......'
+            });
+            setTimeout(sleep,500);
+            $(document).Toasts('create', {
+                class: 'bg-success',
+                title: '服务端回执',
+                body: '正在生成员工编号......'
+            });
+            setTimeout(sleep,500);
+            $(document).Toasts('create', {
+                class: 'bg-success',
+                title: '服务端回执',
+                body: '正在锁定改员工编号，进行数据保存......'
+            });
+
+            $.ajax({
+                url : "http://localhost:8081/PersonnelManage_war_exploded/staffinfo/addstaffinfo",
+                type : "POST",
+                data : {"id":id,"name":name,"idnumber":idnumber,"address":address,"department":department,"post":post,"sex":sex,"staff_status":staff_status,"probation":probation},
+                dataType : "text",
+                timeout : 1000,
+                error : function () {
+                    Toast.fire({
+                        icon: 'error',
+                        title: '锁定员工编号是发生未知错误，请联系管理员'
+                    });
+                },
+                success : function (data) {
+                    if(data=="ok"){
+                        Toast.fire({
+                            icon: 'success',
+                            title: '保存成功'
+                        });
+                        setTimeout(sleep,1500);
+                        location.replace(location);
+                    }else{
+                        Toast.fire({
+                            icon: 'error',
+                            title: '身份证号码重复，请重新输入'
+                        });
+                    }
+                }
+            });
+        }
+
+    }
+</script>
+</body>
+</html>
+

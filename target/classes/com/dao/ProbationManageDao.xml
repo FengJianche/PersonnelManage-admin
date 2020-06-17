@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ProbationManageDao">
+    <update id="upProbationEndtime" parameterType="string">
+        UPDATE probation
+        <trim prefix="set" suffixOverrides=",">
+            endtime=now(),
+        </trim>
+        WHERE staff_id=#{id}
+    </update>
+
+    <update id="upStaffStatus">
+        UPDATE staffinfo
+        <trim prefix="set" suffixOverrides=",">
+            staff_status=#{staff_status}
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    <update id="upProbationInfo">
+        UPDATE probation
+        <trim prefix="set" suffixOverrides=",">
+            <if test="begintime!=null">begintime = #{begintime},</if>
+            endtime = #{endtime},
+        </trim>
+        WHERE staff_id=#{staff_id}
+    </update>
+
+    <delete id="delProbation" parameterType="string">
+        delete from probation where staff_id=#{arg0}
+    </delete>
+</mapper>

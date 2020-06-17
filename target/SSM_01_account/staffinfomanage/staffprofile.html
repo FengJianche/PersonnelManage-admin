@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | User Profile</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- 上方菜单栏 -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+
+      <!--      人员资料显示区-->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fa fa-user-alt"></i>
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+              <h4 href="#" class="d-block">fengjianche</h4>
+            </div>
+
+          </div>
+            </span>
+          <span class="dropdown-item dropdown-header">个人中心</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">退出登录</a>
+        </div>
+      </li>
+      <!--      <li class="nav-item">-->
+      <!--        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">-->
+      <!--          <i class="fas fa-th-large"></i>-->
+      <!--        </a>-->
+      <!--      </li>-->
+    </ul>
+  </nav>
+
+
+  <!--  左侧主菜单栏 -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link">
+
+      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+
+      <span class="brand-text font-weight-light">人事管理系统</span>
+    </a>
+
+    <!-- Sidebar 菜单栏选项 -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">fengjianche</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                工作区
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/index.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>总览</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+          <!--添加自定义测试区，员工信息管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                员工信息管理
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/allstaff" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>在职员工信息查询</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--添加自定义测试区，员工入职管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-plus"></i>
+              <p>
+                员工入职管理
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/alldepartmentinfo" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>录入员工入职信息</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/staffinfo/allprobation" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>员工试用期管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <!--添加自定义测试区，员工调动管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-exchange-alt"></i>
+              <p>
+                员工调动管理
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/alltransferrecord" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>调动记录查询</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/alldepartmentinfo" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>在职员工调动</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/transfer/staffdimission" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>员工离职管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--添加自定义测试区，系统管理-->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-plug"></i>
+              <p>
+                系统监控管理中心
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8081/PersonnelManage_war_exploded/system/alldepartmentpostinfo" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>部门职位管理</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- 内容 以及内容区域 -->
+  <div class="content-wrapper">
+    <!-- 面包屑 -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">员工档案</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">工作区</a></li>
+              <li class="breadcrumb-item active">员工档案</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="../dist/img/user4-128x128.jpg"
+                       alt="User profile picture">
+                </div>
+
+                <h3 class="profile-username text-center" th:text="${staffinfofiles.getName()}">姓名</h3>
+
+                <p class="text-muted text-center" th:text="${staffinfofiles.getDepartment()}+'    '+${staffinfofiles.getPost()}">部门 职位</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>工号</b> <a class="float-right" th:text="${staffinfofiles.getId()}">3171905222</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>身份证号</b> <a class="float-right" th:text="${staffinfofiles.getIdnumber()}">350430199922222222</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>职称</b> <a class="float-right"  th:text="${staffinfofiles.getTechpost()}">员工职称</a>
+                  </li>
+                </ul>
+
+                <a href="#" class="btn btn-primary btn-block"><b>发送通知</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">状态</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-book mr-1"></i> 就职状态</strong>
+
+                <p class="text-muted" th:text="${staffinfofiles.getStaff_status()}">
+                  正式员工
+                </p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> 上次登录时间</strong>
+                <p class="text-muted">功能未开放</p>
+
+                <hr>
+
+                <hr>
+
+
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+<!--                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>-->
+<!--                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab" id="timelineid">生涯时间线</a></li>-->
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab" id="filesid">基本档案</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <!-- /.tab-pane -->
+<!--                  <div class="tab-pane" id="timeline">-->
+<!--                    &lt;!&ndash; The timeline &ndash;&gt;-->
+<!--                    <div class="timeline timeline-inverse">-->
+<!--                      &lt;!&ndash; timeline time label &ndash;&gt;-->
+<!--                      <div class="time-label">-->
+<!--                        <span class="bg-danger">-->
+<!--                          10 Feb. 2014-->
+<!--                        </span>-->
+<!--                      </div>-->
+<!--                      &lt;!&ndash; /.timeline-label &ndash;&gt;-->
+<!--                      &lt;!&ndash; timeline item &ndash;&gt;-->
+<!--                      <div>-->
+<!--                        <i class="fas fa-envelope bg-primary"></i>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                          <span class="time"><i class="far fa-clock"></i> 12:05</span>-->
+
+<!--                          <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>-->
+
+<!--                          <div class="timeline-body">-->
+<!--                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,-->
+<!--                            weebly ning heekya handango imeem plugg dopplr jibjab, movity-->
+<!--                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle-->
+<!--                            quora plaxo ideeli hulu weebly balihoo...-->
+<!--                          </div>-->
+<!--                          <div class="timeline-footer">-->
+<!--                            <a href="#" class="btn btn-primary btn-sm">Read more</a>-->
+<!--                            <a href="#" class="btn btn-danger btn-sm">Delete</a>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      &lt;!&ndash; END timeline item &ndash;&gt;-->
+<!--                      &lt;!&ndash; timeline item &ndash;&gt;-->
+<!--                      <div>-->
+<!--                        <i class="fas fa-user bg-info"></i>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                          <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>-->
+
+<!--                          <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request-->
+<!--                          </h3>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      &lt;!&ndash; END timeline item &ndash;&gt;-->
+<!--                      &lt;!&ndash; timeline item &ndash;&gt;-->
+<!--                      <div>-->
+<!--                        <i class="fas fa-comments bg-warning"></i>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                          <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>-->
+
+<!--                          <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>-->
+
+<!--                          <div class="timeline-body">-->
+<!--                            Take me to your leader!-->
+<!--                            Switzerland is small and neutral!-->
+<!--                            We are more like Germany, ambitious and misunderstood!-->
+<!--                          </div>-->
+<!--                          <div class="timeline-footer">-->
+<!--                            <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      &lt;!&ndash; END timeline item &ndash;&gt;-->
+<!--                      &lt;!&ndash; timeline time label &ndash;&gt;-->
+<!--                      <div class="time-label">-->
+<!--                        <span class="bg-success">-->
+<!--                          3 Jan. 2014-->
+<!--                        </span>-->
+<!--                      </div>-->
+<!--                      &lt;!&ndash; /.timeline-label &ndash;&gt;-->
+<!--                      &lt;!&ndash; timeline item &ndash;&gt;-->
+<!--                      <div>-->
+<!--                        <i class="fas fa-camera bg-purple"></i>-->
+
+<!--                        <div class="timeline-item">-->
+<!--                          <span class="time"><i class="far fa-clock"></i> 2 days ago</span>-->
+
+<!--                          <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>-->
+
+<!--                          <div class="timeline-body">-->
+<!--                            <img src="http://placehold.it/150x100" alt="...">-->
+<!--                            <img src="http://placehold.it/150x100" alt="...">-->
+<!--                            <img src="http://placehold.it/150x100" alt="...">-->
+<!--                            <img src="http://placehold.it/150x100" alt="...">-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      &lt;!&ndash; END timeline item &ndash;&gt;-->
+<!--                      <div>-->
+<!--                        <i class="far fa-clock bg-gray"></i>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                  <!-- /.tab-pane -->
+
+
+                  <div class="card card-primary" id="notfind">
+                    <div class="card-header">
+                      <h3 class="card-title">员工档案</h3>
+
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="#" data-source-selector="#card-refresh-content"><i class="fas fa-sync-alt"></i></button>
+                      </div>
+                      <!-- /.card-tools -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      未发现该员工的档案
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
+                  </div>
+                  <button type="button" class="btn btn-block bg-gradient-primary btn-sm" id="createfiles" onclick="createcard()">创建该员工档案</button>
+                  <!-- 员工档案录入位置 -->
+                  <div class="card card-primary" id="entryfiles">
+                    <div class="card-header">
+                      <h3 class="card-title">录入员工档案</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      <form role="form" th:action="@{/staffinfo/addstafffiles?id=}+${staffinfofiles.getId()}" method="post">
+
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <!-- select -->
+                            <div class="form-group">
+                              <label>政治面貌</label>
+                              <select name="political_status" class="form-control">
+                                <option>群众</option>
+                                <option>中共党员</option>
+                                <option>中共预备党员</option>
+                                <option>共青团员</option>
+                                <option>民革党员</option>
+                                <option>民盟盟员</option>
+                                <option>民建会员</option>
+                                <option>民进会员</option>
+                                <option>农工党党员</option>
+                                <option>致公党党员</option>
+                                <option>九三学社社员</option>
+                                <option>无党派人士</option>
+                                <option>台盟盟员</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- 职业生涯 -->
+                        <div class="form-group">
+                          <label>职业生涯</label>
+                          <textarea class="form-control" name="career" rows="3" placeholder="2015-2017  就职xxxx公司
+2017 -2019 就职于XXXX公司
+"></textarea>
+                        </div>
+
+                        <!-- 外语能力 -->
+                        <div class="form-group">
+                          <label>外语能力</label>
+                          <textarea class="form-control" name="language" rows="3" placeholder="英语四级
+托福1.2
+雅思3.6"></textarea>
+                        </div>
+
+                        <!-- 家庭成员信息 -->
+                        <div class="form-group">
+                          <label>家庭成员信息</label>
+                          <textarea class="form-control" name="family" rows="3" placeholder="父亲 xxx 17856988566
+母亲 xxx 15855698556"></textarea>
+                        </div>
+
+                        <!-- 社会关系 -->
+                        <div class="form-group">
+                          <label>社会关系</label>
+                          <textarea class="form-control" name="social" rows="3" placeholder="无"></textarea>
+                        </div>
+
+                        <!-- 学历信息 -->
+                        <div class="form-group">
+                          <label>学历信息</label>
+                          <textarea class="form-control" name="education" rows="3" placeholder="1999-09-12 衡水小学
+2014-09-06 衡水中学
+2017-09-06 福建工程学院"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-block bg-gradient-primary btn-sm">录入</button>
+                      </form>
+
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+
+
+<!--                  <div class="card card-primary" id="entryfiles">-->
+<!--                    <div class="card-header">-->
+<!--                      <h3 class="card-title">员工档案</h3>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--                    <div class="card-body">-->
+                  <div class="card card-primary" id="settings">
+                    <div class="card-header">
+                      <h3 class="card-title">员工档案</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                      <div class="tab-pane" id="tabpane">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">员工编号</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="staff_id" id="staff_id" placeholder="id" th:value="${staffinfofiles.getId()}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">政治面貌</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control"  id="political_status" placeholder="political_status" th:value="${staffinfofiles.getPolitical_status()}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">职业生涯</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="career" placeholder="career" th:value="${staffinfofiles.getCareer()}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">外语能力</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="language" placeholder="language"  th:value="${staffinfofiles.getLanguage()}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">家庭成员信息</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="family" placeholder="family"  th:value="${staffinfofiles.getFamily()}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">社会关系</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="social" placeholder="social"  th:value="${staffinfofiles.getSocial()}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">学历信息</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="education" placeholder="education"  th:value="${staffinfofiles.getEducation()}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger">更新</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+
+
+
+                    </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.6-pre
+
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<script>
+    $(function () {
+        $("#timelineid").trigger("click");
+        document.getElementById("notfind").style.display="none";
+        document.getElementById("createfiles").style.display="none";
+        document.getElementById("entryfiles").style.display="none";
+
+        var ifexist = document.getElementById('political_status').value;
+        if(ifexist==="@system_none_flag"){
+            document.getElementById("settings").style.visibility="hidden";
+            document.getElementById("notfind").style.display="block";
+            document.getElementById("createfiles").style.display="block";
+
+        }
+    });
+</script>
+<script>
+    function createcard() {
+        document.getElementById("notfind").style.display="none";
+        document.getElementById("createfiles").style.display="none";
+        document.getElementById("entryfiles").style.display="block";
+    }
+</script>
+
+</body>
+</html>
